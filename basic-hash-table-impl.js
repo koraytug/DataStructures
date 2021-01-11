@@ -36,7 +36,6 @@ class HashTable {
   
   keys(){
     const keysArray = [];
-    console.log(this.data.length);
     for (let i = 0; i < this.data.length; i++){
       if(this.data[i]){
         keysArray.push(this.data[i][0][0])
@@ -46,10 +45,15 @@ class HashTable {
   }
 }
 
-const myHashTable = new HashTable(50);
-myHashTable.set('grapes', 10000)
-myHashTable.set('grapes', 10000)
-myHashTable.get('grapes')
-myHashTable.set('apples', 9)
-myHashTable.get('apples')
-myHashTable.keys()
+
+module.exports.run = function(){
+  const myHashTable = new HashTable(50);
+  myHashTable.set('grapes', 10000)
+  myHashTable.set('grapes', 10000)
+  myHashTable.get('grapes')
+  myHashTable.set('apples', 9)
+  myHashTable.get('apples')
+  console.log(myHashTable.keys());
+  console.log(myHashTable);
+} 
+
