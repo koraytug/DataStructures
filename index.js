@@ -15,7 +15,11 @@
 //var bubbleSort = require('./bubble-sort.js');
 //var selectionSort = require('./selection-sort.js');
 //var insertionSort = require('./insertion-sort.js');
-var mergeSort = require('./merge-sort.js');
+//var mergeSort = require('./merge-sort.js');
+
+
+var BFS = require('./breadth-first-search.js');
+
 
 //binarySearchTree.run();
 //staticArray.run();
@@ -34,4 +38,6 @@ var mergeSort = require('./merge-sort.js');
 //bubbleSort.sort();
 //selectionSort.sort();
 //insertionSort.sort();
-mergeSort.sort();
+//mergeSort.sort();
+
+BFS.run();
