@@ -1,4 +1,4 @@
-//var binarySearchTree = require('./basic-binary-search-tree-imp.js');
+var binarySearchTree = require('./basic-binary-search-tree-imp.js');
 //var staticArray = require('./basic-array-implemantation.js');
 //var reverseString = require('./reverse-string.js');
 //var mergeSortedArrays = require('./merge-sorted-arrays.js');
@@ -18,10 +18,10 @@
 //var mergeSort = require('./merge-sort.js');
 
 
-var BFS = require('./breadth-first-search.js');
+//var BFS = require('./breadth-first-search.js');
+//var DFS = require('./depth-first-search');
 
-
-//binarySearchTree.run();
+binarySearchTree.run();
 //staticArray.run();
 //reverseString.reverse()
 //mergeSortedArrays.run();
@@ -40,4 +40,4 @@ var BFS = require('./breadth-first-search.js');
 //insertionSort.sort();
 //mergeSort.sort();
 
-BFS.run();
+//BFS.run();

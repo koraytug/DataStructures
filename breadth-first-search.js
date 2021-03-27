@@ -186,6 +186,9 @@ class BinarySearchTree{
 //       9
 //   4        20
 // 1    6   15   170
+
+// [9, 4, 20, 1, 6, 15, 170] 
+ 
 module.exports.run = function() {
 const tree= new BinarySearchTree();
 tree.insert(9);

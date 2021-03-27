@@ -139,12 +139,105 @@ class BinarySearchTree{
       }
     }
   }
+
+  breadthFirstSearch(){
+    let currentNode = this.root;
+    let list = [];
+    let queue = [];
+    queue.push(currentNode) ;
+
+    while(queue.length>0){
+      currentNode = queue.shift();
+      console.log(currentNode.value);
+      list.push(currentNode.value);
+
+      if(currentNode.left){
+        queue.push(currentNode.left);
+      }
+      if(currentNode.right){
+        queue.push(currentNode.right);
+      }
+
+    }
+    return list;
+
+  }
+
+  BreadthFirstSearchR(queue, list) {
+    if (!queue.length) {
+      return list;
+    }
+    const currentNode = queue.shift();
+    list.push(currentNode.value);
+    
+    if (currentNode.left) {
+      queue.push(currentNode.left);
+    }
+    if (currentNode.right) {
+      queue.push(currentNode.right);
+    }
+    
+    return this.BreadthFirstSearchR(queue, list);
+  }
+
+  DFTPreOrder(currentNode, list) {
+    return traversePreOrder(this.root, []);
+  }
+
+  DFTPostOrder(){
+    return traversePostOrder(this.root, []); 
+  }
+
+  DFTInOrder(){
+    return traverseInOrder(this.root, []);
+  }
+
+  function traversePreOrder(node, list){
+    list.push(node.value);
+    if(node.left) {
+      traversePreOrder(node.left, list);
+    }
+    if(node.right) {
+      traversePreOrder(node.right, list);
+    }
+    return list;
+  }
+
+  function traverseInOrder(node, list){
+    if(node.left) {
+      traverseInOrder(node.left, list);
+    }
+    list.push(node.value);
+    if(node.right) {
+      traverseInOrder(node.right, list);
+    }
+    return list;
+  }
+
+  function traversePostOrder(node, list){
+    if(node.left) {
+      traversePostOrder(node.left, list);
+    }
+    if(node.right) {
+      traversePostOrder(node.right, list);
+    }
+    list.push(node.value);
+    return list;
+  }
+
 }
 
 
 //       9
 //   4        20
 // 1    6   15   170
+
+// [9, 4, 1, 6 ,20, 15, 170]
+
+// inOrder - [1, 4, 6, 9, 15, 20, 170]
+// preOrder - [9, 4, 1, 6, 20, 15, 170 ]
+// postOreder - [1, 6, 4, 15, 170, 20 ,9]
+
 module.exports.run = function() {
 const tree= new BinarySearchTree();
 tree.insert(9);
@@ -152,11 +245,14 @@ tree.insert(4);
 tree.insert(6);
 tree.insert(20);
 tree.insert(170);
-tree.insert(1); 
-//tree.remove(170)
- console.log(JSON.stringify(traverse(tree.root)));
-//tree.lookup(15);
-//tree.lookup(7);
+ 
+console.log('BFS', tree.breadthFirstSearch());
+console.log('BFS Recursive', tree.BreadthFirstSearchR([tree.root], []));
+
+console.log('DFSpre', tree.DFTPreOrder());
+console.log('DFSin', tree.DFTInOrder());
+console.log('DFSpost', tree.DFTPostOrder());
+
 }
 
 
